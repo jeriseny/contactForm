@@ -1,0 +1,272 @@
+/* 기본 리셋 및 글꼴 설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* 전체 레이아웃 */
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 헤더 섹션 */
+header {
+  padding: 32px 24px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eaedf0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 16px;
+}
+
+/* 폼 스타일링 */
+form {
+  padding: 32px 24px;
+  display: grid;
+  gap: 28px;
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+  min-width: 0;  /* 컨텐츠 오버플로우 방지 */
+}
+
+label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  display: block; /* 라벨이 줄바꿈되도록 설정 */
+  margin-bottom: 4px; /* 라벨과 입력 필드 사이 간격 증가 */
+}
+
+.req::after {
+  content: "*";
+  color: #e74c3c;
+  margin-left: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.hint {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+  display: block;
+}
+
+/* 그리드 레이아웃 */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start; /* 상단 정렬 */
+}
+
+.grid-2 .row {
+  width: 100%; /* 각 row가 그리드 셀 전체 너비를 차지하도록 설정 */
+}
+
+/* 이름과 이메일 입력 필드 정렬 */
+.grid-2 input[type="text"],
+.grid-2 input[type="email"],
+.grid-2 input[type="tel"]{
+  height: 48px; /* 두 입력 필드의 높이를 동일하게 설정 */
+}
+
+/* 라디오 버튼 그룹 */
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  background-color: #f5f7fa;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pill:hover {
+  background-color: #ebeef2;
+}
+
+.pill input[type="radio"] {
+  margin-right: 6px;
+}
+
+/* 체크박스 스타일 */
+.agree-line {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.agree-text {
+  font-size: 14px;
+  color: #555;
+}
+
+/* 버튼 스타일 */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button[type="submit"] {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #3a5cd7;
+  transform: translateY(-1px);
+}
+
+.ghost {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.ghost:hover {
+  background-color: #f5f7fa;
+  border-color: #ccc;
+}
+
+#status {
+  flex-grow: 1;
+  text-align: right;
+  color: #777;
+}
+
+/* 구분선 */
+.divider {
+  height: 1px;
+  background-color: #eaedf0;
+  margin: 16px 0;
+}
+
+/* 푸터 */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eaedf0;
+  color: #888;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #status {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* 애니메이션 및 효과 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 접근성 포커스 표시 */
+:focus-visible {
+  outline: 2px solid #4a6cf7;
+  outline-offset: 2px;
+}
