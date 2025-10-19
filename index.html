@@ -114,22 +114,18 @@
         };
 
         try {
-            const res = await fetch(GAS_URL, {
+            await fetch(GAS_URL, {
                 method: "POST",
                 mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data)
             });
-            const result = await res.json();
 
-            if (result.status === 'OK') {
-                statusDiv.textContent = '전송 완료! 빠르게 확인하겠습니다.';
-                statusDiv.style.color = '#34d399';
-                form.reset();
-                document.getElementById('count').textContent = '0';
-            } else {
-                throw new Error(result.error || '전송 실패');
-            }
+            statusDiv.textContent = '전송 완료! 빠르게 확인하겠습니다.';
+            statusDiv.style.color = '#34d399';
+            form.reset();
+            document.getElementById('count').textContent = '0';
+
         } catch (error) {
             console.error(error);
             statusDiv.textContent = '전송 중 오류가 발생했습니다.';
