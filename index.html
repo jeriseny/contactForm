@@ -71,7 +71,7 @@
             </div>
 
             <div class="divider"></div>
-            <p class="hint">전송 즉시 자동 저장됩니다. 민감정보는 기재하지 마세요.</p>
+<!--            <p class="hint">전송 즉시 자동 저장됩니다. 민감정보는 기재하지 마세요.</p>-->
         </form>
 
         <footer class="footer">
@@ -97,6 +97,27 @@
         document.getElementById('count').textContent = '0';
         statusDiv.textContent = '';
     });
+
+    document.getElementById('phone').addEventListener('input', function(e) {
+        // 숫자만 추출
+        let value = this.value.replace(/[^0-9]/g, '');
+
+        // 길이에 따라 하이픈 추가
+        if (value.length > 3 && value.length <= 7) {
+            // 010-1234 형식
+            value = value.substring(0, 3) + '-' + value.substring(3);
+        } else if (value.length > 7) {
+            // 010-1234-5678 형식
+            value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7, 11);
+        }
+
+        if (value.length > 13) {
+            value = value.substring(0, 13);
+        }
+
+        this.value = value;
+    });
+
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
